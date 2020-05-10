@@ -14,24 +14,24 @@ import (
 	"github.com/pkg/errors"
 )
 
-// JPGtoPNG JPG to PNG conversion
-func JPGtoPNG(imageBytes []byte) ([]byte, error) {
-	img, err := jpeg.Decode(bytes.NewReader(imageBytes))
+// PNGtoJPG PNG to JPG conversion
+func PNGtoJPG(imageBytes []byte) ([]byte, error) {
+	img, err := png.Decode(bytes.NewReader(imageBytes))
 	if err != nil {
 		return nil, errors.Wrap(err, "unable to decode jpeg")
 	}
 
 	buf := new(bytes.Buffer)
-	if err := png.Encode(buf, img); err != nil {
+	if err := jpeg.Encode(buf, img, nil); err != nil {
 		return nil, errors.Wrap(err, "unable to encode png")
 	}
 
 	return buf.Bytes(), nil
 }
 
-// JPGtoGIF JPG to GIF conversion
-func JPGtoGIF(imageBytes []byte) ([]byte, error) {
-	img, err := jpeg.Decode(bytes.NewReader(imageBytes))
+// PNGtoGIF PNG to GIF conversion
+func PNGtoGIF(imageBytes []byte) ([]byte, error) {
+	img, err := png.Decode(bytes.NewReader(imageBytes))
 	if err != nil {
 		return nil, errors.Wrap(err, "unable to decode jpeg")
 	}
@@ -44,9 +44,9 @@ func JPGtoGIF(imageBytes []byte) ([]byte, error) {
 	return buf.Bytes(), nil
 }
 
-// JPGtoBMP JPG to BMP conversion
-func JPGtoBMP(imageBytes []byte) ([]byte, error) {
-	img, err := jpeg.Decode(bytes.NewReader(imageBytes))
+// PNGtoBMP PNG to BMP conversion
+func PNGtoBMP(imageBytes []byte) ([]byte, error) {
+	img, err := png.Decode(bytes.NewReader(imageBytes))
 	if err != nil {
 		return nil, errors.Wrap(err, "unable to decode jpeg")
 	}
@@ -59,9 +59,9 @@ func JPGtoBMP(imageBytes []byte) ([]byte, error) {
 	return buf.Bytes(), nil
 }
 
-// JPGtoWEBP JPG to WEBP conversion
-func JPGtoWEBP(imageBytes []byte) ([]byte, error) {
-	img, err := jpeg.Decode(bytes.NewReader(imageBytes))
+// PNGtoWEBP PNG to WEBP conversion
+func PNGtoWEBP(imageBytes []byte) ([]byte, error) {
+	img, err := png.Decode(bytes.NewReader(imageBytes))
 	if err != nil {
 		return nil, errors.Wrap(err, "unable to decode jpeg")
 	}
@@ -74,9 +74,9 @@ func JPGtoWEBP(imageBytes []byte) ([]byte, error) {
 	return buf.Bytes(), nil
 }
 
-// JPGtoTIFF JPG to TIFF conversion
-func JPGtoTIFF(imageBytes []byte) ([]byte, error) {
-	img, err := jpeg.Decode(bytes.NewReader(imageBytes))
+// PNGtoTIFF PNG to TIFF conversion
+func PNGtoTIFF(imageBytes []byte) ([]byte, error) {
+	img, err := png.Decode(bytes.NewReader(imageBytes))
 	if err != nil {
 		return nil, errors.Wrap(err, "unable to decode jpeg")
 	}

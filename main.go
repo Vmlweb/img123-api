@@ -16,6 +16,7 @@ func main() {
 	r := mux.NewRouter()
 
 	r.HandleFunc("/convert", app.Convert).Methods("POST")
+	r.HandleFunc("/supported", app.Supported).Methods("GET")
 
 	handler := cors.Default().Handler(r)
 	port := os.Getenv("PORT")
