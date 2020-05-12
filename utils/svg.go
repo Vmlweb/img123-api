@@ -19,12 +19,12 @@ func EncodeSVG(i image.Image) ([]byte, error) {
 		return nil, errors.Wrap(err, "unable to encode svg")
 	}
 
+	base64 := b64.StdEncoding.EncodeToString(pngBuf.Bytes())
+
 	config, _, err := image.DecodeConfig(pngBuf)
 	if err != nil {
 		return nil, errors.Wrap(err, "unable to encode svg")
 	}
-
-	base64 := b64.StdEncoding.EncodeToString([]byte(pngBuf.Bytes()))
 
 	svgBuf := new(bytes.Buffer)
 	svg := svg.New(svgBuf)
