@@ -52,6 +52,16 @@ var converters = []*converterMethods{
 		decode: utils.DecodeWEBP,
 		encode: utils.EncodeWEBP,
 	},
+	{
+		name:   "ico",
+		decode: utils.DecodeICO,
+		encode: utils.EncodeICO,
+	},
+	{
+		name:   "icns",
+		decode: utils.DecodeICNS,
+		encode: utils.EncodeICNS,
+	},
 }
 
 // UtilitiesServer utilities server
@@ -70,15 +80,6 @@ func (s *UtilitiesServer) Supported(w http.ResponseWriter, r *http.Request) {
 			}
 		}
 	}
-
-	*converterMap = append(*converterMap, converter{
-		From: "*",
-		To:   "!ico",
-	})
-	*converterMap = append(*converterMap, converter{
-		From: "*",
-		To:   "!icns",
-	})
 
 	var jsonData []byte
 	jsonData, err := json.Marshal(converterMap)
