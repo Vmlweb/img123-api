@@ -3,6 +3,7 @@ module github.com/Vmlweb/img123-api
 go 1.14
 
 require (
+	github.com/ajstarks/svgo v0.0.0-20200320125537-f189e35d30ca
 	github.com/chai2010/webp v1.1.0
 	github.com/gorilla/mux v1.7.4
 	github.com/jackmordaunt/icns v1.0.0

@@ -62,6 +62,10 @@ var converters = []*converterMethods{
 		decode: utils.DecodeICNS,
 		encode: utils.EncodeICNS,
 	},
+	{
+		name:   "svg",
+		encode: utils.EncodeSVG,
+	},
 }
 
 // UtilitiesServer utilities server
